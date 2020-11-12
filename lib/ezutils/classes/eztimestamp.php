@@ -14,6 +14,12 @@ class eZTimestamp
      \return a timestamp in UTC
     */
     public static function getUtcTimestampFromLocalTimestamp( $localTimestamp ) {
+
+        if ( $localTimestamp === null || $localTimestamp === '' )
+        {
+            return null;
+        }
+
         $utcTimezone = new \DateTimeZone( 'UTC' );
         $localTimezone = new \DateTimeZone( date_default_timezone_get() );
 
@@ -28,6 +34,12 @@ class eZTimestamp
      \return a timestamp in timezone defined in php.ini
     */
     public static function getLocalTimestampFromUtcTimestamp( $utcTimestamp ) {
+
+        if ( $utcTimestamp === null || $utcTimestamp === '' )
+        {
+            return null;
+        }
+
         $utcTimezone = new \DateTimeZone( 'UTC' );
         $localTimezone = new \DateTimeZone( date_default_timezone_get() );
 
